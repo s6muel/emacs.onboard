@@ -1905,5 +1905,21 @@ With SWITCH = 'hook, return -hook variables."
 (global-set-key (kbd "C-M-<backspace>") #'backward-kill-sexp)
 
 ;;  ____________________________________________________________________________
+;; Magit - the Git porcelain inside Emacs
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)))
+
+;; Diff-hl - show changed lines in the fringe
+(use-package diff-hl
+  :ensure t
+  :hook ((prog-mode . diff-hl-mode)
+         (text-mode . diff-hl-mode)
+         (dired-mode . diff-hl-dired-mode))
+  :config
+  ;; Refresh diff-hl after Magit operations
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
+
+;;  ____________________________________________________________________________
 (provide 'eon)
 ;;; eon.el ends here
