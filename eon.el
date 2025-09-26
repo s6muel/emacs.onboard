@@ -330,7 +330,7 @@ Order semantics match `add-to-list':
                       :slant  'normal
                       :weight 'normal
                       :width  'normal
-                      :height 150)
+                      :height 130)
   ;; Set an alternative monospaced font. Can be the same as above.
   ;; It should have the same character width as the default font
   (set-face-attribute 'fixed-pitch nil
@@ -474,10 +474,10 @@ Some themes may come as functions -- wrap these ones in lambdas."
         (border-mode-line-inactive bg-mode-line-inactive)))
 
 ;; --> Set your light theme:
-(setq eon-light-theme-name 'modus-operandi-tinted)
+(setq eon-light-theme-name 'modus-operandi)
 
 ;; --> Set your dark theme:
-(setq eon-dark-theme-name 'modus-vivendi-tinted)
+(setq eon-dark-theme-name 'modus-vivendi)
 
 ;; --> Set your default variant here - 'light or 'dark
 (setq eon-default-theme-variant 'light)
@@ -1292,7 +1292,7 @@ which sets the default `eww' user-agent according to `url-privacy-level'."
 ;; set it here for all programming modes. Goto line: "M-g M-g"
 (add-hook 'prog-mode-hook
           (lambda ()
-            (display-line-numbers-mode -1)))
+            (display-line-numbers-mode 1)))
 
 ;;  ____________________________________________________________________________
 ;;; LINE WRAPPING
@@ -1305,9 +1305,9 @@ which sets the default `eww' user-agent according to `url-privacy-level'."
 
 ;; If you prefer to see all text within a window in programming modes, enable
 ;; visual line breaks, a.k.a soft wrapping
-;; (add-hook 'prog-mode-hook
-;;           (lambda ()
-;;             (visual-line-mode 1)))
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (visual-line-mode 1)))
 
 ;;  ____________________________________________________________________________
 ;;; FOLDING
@@ -1359,7 +1359,7 @@ which sets the default `eww' user-agent according to `url-privacy-level'."
 ;; Indicate trailing whitespace in programming modes?
 (add-hook 'prog-mode-hook
           (lambda ()
-            (setq show-trailing-whitespace nil)))
+            (setq show-trailing-whitespace t)))
 
 ;; Indicate trailing whitespace in "text" modes?
 (add-hook 'text-mode-hook
